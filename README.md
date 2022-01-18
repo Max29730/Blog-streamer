@@ -1,7 +1,5 @@
 # Blog streamer
 
-Test de maj
-
  ---Update 1.1---
 
 Nouvelle fonctionnalité : -Calendrier de streaming- 
