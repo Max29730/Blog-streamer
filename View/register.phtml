@@ -1,0 +1,42 @@
+<h2>Creer un nouveau compte </h2>
+
+<?php if ($addUser) : ?>
+    <p><?= htmlspecialchars($addUser) ?>, retourner <a href="index.php">à l'accueil</a></p>
+<?php else : ?>
+    <form action="index.php?a=register" method="post">
+        <fieldset>
+            <legend> Nouvel Utilisateur</legend>
+
+            <?php if (count($error) != 0) { ?>
+                <ul>
+                    <?php foreach ($error as $value) : ?>
+                        <li><?= htmlspecialchars($value) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php } ?>
+            
+            <ul>
+                <li>
+                    <label for="Pseudo">Pseudo :</label>
+                    <input type="text" id="Pseudo" name="Pseudo">
+                </li>
+                <li>
+                    <label for="Email">Email :</label>
+                    <input type="email" id="Email" name="Email">
+                </li>
+                <li>
+                    <label for="Password">Mot de passe :</label>
+                    <input type="password" id="Password" name="Password">
+                </li>
+                <li>
+                    <label for="PasswordConfirm">Confirmez mot de passe :</label>
+                    <input type="password" id="PasswordConfirm" name="PasswordConfirm">
+                </li>
+                <li>
+                    <button type="submit">Enregistrer</button>
+                    <input type="reset" value="Annuler ">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+<?php endif ?>

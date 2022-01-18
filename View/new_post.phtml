@@ -1,0 +1,49 @@
+<h2></i> Rédiger un nouvel article</h2>
+
+<form action="index.php?a=new_post" method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Nouvel article</legend>
+        <?php if (count($error) != 0) { ?>
+            <ul>
+                <?php foreach ($error as $value) : ?>
+                    <li><?= htmlspecialchars($value) ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php } ?>
+        <ul>
+            <li>
+                <label for="title">Titre :</label>
+                <input type="text" id="title" name="title">
+            </li>
+            <li>
+                <label for="contents">Article :</label>
+                <textarea id="contenu" name="contenu" rows="15"></textarea>
+            </li>
+            <li>
+                <input type="hidden" name="MAX_FILE_SIZE" value="2097152">
+                <input type="file" name="image">
+                <br><small>Choisissez une photo avec une taille inférieure à 2 Mo.</small>
+            </li>
+            <li>
+                <label for="NumAuteur">Auteur :</label>
+                <select id="NumAuteur" name="NumAuteur">
+                    <?php foreach ($auteurs as $auteur) : ?>
+                        <option value="<?= intval($auteur['Id_auteur']) ?>"><?= htmlspecialchars($auteur['Nom_auteur']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </li>
+            <li>
+                <label for="NumCategorie">Catégorie :</label>
+                <select id="NumCategorie" name="NumCategorie">
+                    <?php foreach ($categories as $categorie) : ?>
+                        <option value="<?= intval($categorie['Id_categorie']) ?>"><?= htmlspecialchars($categorie['Nom_categorie']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </li>
+            <li>
+                <button type="submit">Enregistrer</button>
+                <input type="reset" value="Annuler ">
+            </li>
+        </ul>
+    </fieldset>
+</form>

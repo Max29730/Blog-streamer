@@ -1,0 +1,68 @@
+<div class="calendar">
+
+    <h2 class="h2Calendar">Calendrier des activités de la chaîne</h2>
+    <h3><?= htmlspecialchars($out[20]) ?></h3>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <td></td>
+                <th>Lundi</th>
+                <th>Mardi</th>
+                <th>Mercredi</th>
+                <th>Jeudi</th>
+                <th>Vendredi</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <th>14h-15h</th>
+                <?php for ($n = 0; $n <= 4; $n++) : ?>
+                    <td>
+                        <?php if ($out[$n]) : ?>
+                            <img src="images/stock/<?= htmlspecialchars($out[$n]) ?>" alt="<?= htmlspecialchars($out[$n]) ?>" class="miniature">
+                        <?php endif; ?>
+                    </td>
+                <?php endfor; ?>
+            </tr>
+            <tr>
+                <th>15h-16h</th>
+                <?php for ($n = 5; $n <= 9; $n++) : ?>
+                    <td>
+                        <?php if ($out[$n]) : ?>
+                            <img src="images/stock/<?= htmlspecialchars($out[$n]) ?>" alt="<?= htmlspecialchars($out[$n]) ?>" class="miniature">
+                        <?php endif; ?>
+                    </td>
+                <?php endfor; ?>
+            </tr>
+            <tr>
+                <th>16h-17h</th>
+                <?php for ($n = 10; $n <= 14; $n++) : ?>
+                    <td>
+                        <?php if ($out[$n]) : ?>
+                            <img src="images/stock/<?= htmlspecialchars($out[$n]) ?>" alt="<?= htmlspecialchars($out[$n]) ?>" class="miniature">
+                        <?php endif; ?>
+                    </td>
+                <?php endfor; ?>
+            </tr>
+            <tr>
+                <th>17h-18h</th>
+                <?php for ($n = 15; $n <= 19; $n++) : ?>
+                    <td>
+                        <?php if ($out[$n]) : ?>
+                            <img src="images/stock/<?= htmlspecialchars($out[$n]) ?>" alt="<?= htmlspecialchars($out[$n]) ?>" class="miniature">
+                        <?php endif; ?>
+                    </td>
+                <?php endfor; ?>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

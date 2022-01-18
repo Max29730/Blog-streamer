@@ -1,0 +1,48 @@
+<h2>Editer l'article</h2>
+
+<form action="index.php?a=edit&idArticle=<?= intval($post['Id_article']) ?>" method="post">
+    <fieldset>
+        <legend>Nouvel article</legend>
+        <?php if (count($error) != 0) { ?>
+            <ul>
+                <?php foreach ($error as $value) : ?>
+                    <li><?= htmlspecialchars($value) ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php } ?>
+        <ul>
+            <input type="hidden" name="idArticle" value="<?= intval($post['Id_article']) ?>" />
+            <li>
+                <p>Article n°<?= intval($post['Id_article']) ?></p>
+            </li>
+            <li>
+                <label for="title">Titre :</label>
+                <input type="text" id="title" name="title" value="<?= htmlspecialchars($post['Titre_article']) ?>">
+            </li>
+            <li>
+                <label for="contents">Article :</label>
+                <textarea id="contents" name="contents" rows="15"><?= htmlspecialchars($post['Contenu_article']) ?></textarea>
+            </li>
+            <li>
+                <label for="NumAuteur">Auteur :</label>
+                <select id="NumAuteur" name="NumAuteur">
+                    <?php foreach ($auteurs as $auteur) : ?>
+                        <option value="<?= intval($auteur['Id_auteur']) ?>"><?= htmlspecialchars($auteur['Nom_auteur']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </li>
+            <li>
+                <label for="NumCategorie">Catégorie :</label>
+                <select id="NumCategorie" name="NumCategorie">
+                    <?php foreach ($categories as $categorie) : ?>
+                        <option value="<?= intval($categorie['Id_categorie']) ?>"><?= htmlspecialchars($categorie['Nom_categorie']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </li>
+            <li>
+                <button type="submit">Enregistrer</button>
+                <input type="reset" value="Annuler ">
+            </li>
+        </ul>
+    </fieldset>
+</form>

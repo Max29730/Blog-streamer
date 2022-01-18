@@ -1,0 +1,35 @@
+<!-- Page login -->
+<h2><i class="fa fa-home"></i> Se connecter </h2>
+
+<!--- formulaire de connexion --->
+<?php if ($message) : ?>
+    <p><?= htmlspecialchars($message) ?>, retourner <a href="index.php">à l'accueil</a></p>
+<?php else : ?>
+
+    <form class="generic-form" action="index.php?a=login" method="post">
+        <fieldset>
+            <legend><i class="fa fa-sticky-note-o"></i> Connexion</legend>
+            <?php if (count($error) != 0) { ?>
+                <ul>
+                    <?php foreach ($error as $value) : ?>
+                        <li class="error"><?= htmlspecialchars($value) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php } ?>
+            <ul>
+                <li>
+                    <label for="Email">Email :</label>
+                    <input type="text" id="Email" name="Email">
+                </li>
+                <li>
+                    <label for="Password">Mot de passe :</label>
+                    <input type="password" id="Password" name="Password">
+                </li>
+                <li>
+                    <button class="button button-primary" type="submit">Se connecter</button>
+                    <input type="reset" class="button button-cancel" value="Annuler ">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+<?php endif ?>

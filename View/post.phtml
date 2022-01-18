@@ -1,0 +1,11 @@
+<div class="postDiv">
+    <h2><?= htmlspecialchars($post['Titre_article']) ?></h2>
+
+    <?php if ($post['Photo']) : ?>
+        <img class="postPhoto" src="images/article/<?= intval($post['Id_article']) ?>/<?= htmlspecialchars($post['Photo']) ?>" alt="article image">
+    <?php endif; ?>
+
+    <p>Catégorie : <?= htmlspecialchars($post['Nom_categorie']) ?></p>
+    <p><?= htmlspecialchars($post['Contenu_article']) ?></p>
+    <small>Rédigé par : <?= htmlspecialchars($post['Nom_auteur']) ?> le : <?= htmlspecialchars($post['Date_article']) ?></small>
+</div>

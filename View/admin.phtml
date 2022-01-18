@@ -1,0 +1,130 @@
+<div class="divAdm">
+
+    <h2>Administration</h2>
+
+    <h3>Gestion des articles</h3>
+
+    <table id="gestPosts">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Article</th>
+                <th>Auteur</th>
+                <th>Categorie</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($posts as $post) : ?>
+            <tr>
+                <td>
+                    <?= htmlspecialchars($post['Titre_article']) ?>
+                </td>
+                <td>
+                    <?= htmlspecialchars(substr($post['Contenu_article'], 0, 10)) ?> ....</td>
+                <td>
+                    <?= htmlspecialchars($post['Nom_auteur']) ?>
+                </td>
+                <td>
+                    <?= htmlspecialchars($post['Nom_categorie']) ?>
+                </td>
+                <td><a href="index.php?a=edit&idArticle=<?= intval($post['Id_article']) ?>">Editer</a></td>
+                <td><a href="admin.php?action=deleteArticle&idArticle=<?= intval($post['Id_article']) ?>">Supprimer</a></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    <div class="newArt">
+
+        <a href="index.php?a=new_post"><i class="far fa-edit"></i>Nouvel article</a>
+
+    </div>
+
+    <hr>
+
+    <h3> Gestion des categories </h3>
+
+    <form action="admin.php?action=addCategorie" method="POST">
+
+        <label for="nomCategorie">Nouvelle categorie :</label>
+        <input type="text" id="nomCategorie" name="nomCategorie">
+
+        <button type="submit">Enregistrer</button>
+        <input type="reset" value="Annuler ">
+
+    </form>
+
+    <h4>Modifier une catégorie</h4>
+
+    <?php foreach ($categories as $categorie) : ?>
+    <div>
+        <form action="admin.php?action=editCategorie" method="post">
+            <input type="hidden" name="idCategorie" value="<?= intval($categorie['Id_categorie']) ?>" />
+            <input type="text" name="nomCategorie" value="<?= htmlspecialchars($categorie['Nom_categorie']) ?>" />
+            <input type="submit" value="Editer" />
+            <a href="admin.php?action=deleteCategorie&idCategorie=<?= intval($categorie['Id_categorie']) ?>"></a>
+        </form>
+    </div>
+    <?php endforeach; ?>
+
+    <hr>
+
+    <h3> Gestion des auteurs </h3>
+
+    <form action="admin.php?action=addAuteur" method="POST">
+
+        <label for="nomAuteur">Nouvel Auteur :</label>
+        <input type="text" id="nomAuteur" name="nomAuteur">
+
+        <button type="submit">Enregistrer</button>
+        <input type="reset" value="Annuler ">
+
+
+    </form>
+
+    <h4>Modifier un auteur</h4>
+
+    <?php foreach ($auteurs as $auteur) : ?>
+    <div>
+        <form action="admin.php?action=editAuteur" method="post">
+            <input type="hidden" name="idAuteur" value="<?= intval($auteur['Id_auteur']) ?>" />
+            <input type="text" name="nomAuteur" value="<?= htmlspecialchars($auteur['Nom_auteur']) ?>" />
+            <input type="submit" value="Editer" />
+            <a href="admin.php?action=deleteAuteur&idAuteur=<?= intval($auteur['Id_auteur']) ?>"></a>
+        </form>
+    </div>
+    <?php endforeach; ?>
+
+    <hr>
+
+    <h3> Gestion des Utilisateurs </h3>
+
+
+
+    <h4>Modifier le statut utilisateur</h4>
+    <?php foreach ($users as $user) : ?>
+    <div>
+        <p>
+            <?= $user['Pseudo'] ?>
+        </p>
+        <form action="admin.php?action=editUser" method="post">
+
+            <input type="hidden" name="idUser" value="<?= $user['Id_user'] ?>" />
+            <select name="role">
+                    <option value="<?= $user['Role'] ?>" selected><?= $user['Role'] ?></option>
+                    <?php if ($user['Role'] == 'Admin') { ?>
+                        <option value="User">User</option>
+                    <?php } elseif ($user['Role'] == 'User') { ?>
+                        <option value="Admin">Admin</option>
+                    <?php } ?>
+
+                </select>
+            <input type="submit" value="Editer" />
+            <a href="admin.php?action=deleteUser&idUser=<?= $user['Id_user'] ?>"></a>
+        </form>
+    </div>
+    <?php endforeach; ?>
+
+    <hr>
+
+</div>

@@ -1,0 +1,31 @@
+<!-- Accueil -->
+
+<h2>Accueil - Liste des articles </h2>
+
+<section class="indexSection">
+
+    <?php foreach ($posts as $post) : ?>
+
+        <article class="mainArticle">
+
+            <h4><?= htmlspecialchars($post["Titre_article"]) ?></h4>
+
+            <?php if ($post["Photo"]) { ?>
+
+                <img src="images/article/<?= intval($post["Id_article"]) ?>/<?= htmlspecialchars($post["Photo"]) ?>" alt="article image" class="photoacceuil">
+
+            <?php } ?>
+
+            <p>Dans la catégorie : <b><?= htmlspecialchars($post["Nom_categorie"]) ?></b></p>
+
+            <p><?= htmlspecialchars(substr($post["Contenu_article"], 0, 150)) ?> [...]</p>
+
+            <a href="index.php?a=post&idArticle=<?= intval($post['Id_article']) ?>">Lire la suite</a>
+
+            <p>Rédigé par <?= htmlspecialchars($post["Nom_auteur"]) ?> le <?= htmlspecialchars($post["Date_article"]) ?></p>
+
+        </article>
+
+    <?php endforeach; ?>
+
+</section>

@@ -1,0 +1,354 @@
+/****************************************************
+                      POLICES
+*****************************************************/
+
+
+/*Chat*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/*General*/
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+/*Admin*/
+
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;300;400;500;600;700&display=swap');
+
+/****************************************************
+                      GLOBAL
+*****************************************************/
+
+* {
+    box-sizing: border-box;
+}
+
+
+/*MOBILE*/
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    font-size: 1.6rem;
+    font-family: 'Merriweather', serif;
+    background-image: url("../images/bg/25100.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main {
+    min-height: 100%;
+    background-image: url("../images/bg/25100.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+header,
+footer {
+    padding: 20px;
+    background-color: #343A40;
+    color: white;
+    text-align: center;
+}
+
+
+/****************************************************
+                      HEADER
+*****************************************************/
+
+header a {
+    padding: 10px;
+    color: white;
+}
+
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header nav a {
+    flex-basis: 100%;
+    padding: 20px;
+}
+
+
+/****************************************************
+                      MAIN
+*****************************************************/
+
+h2 {
+    padding-top: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+
+/****************************************************
+                      INDEX
+*****************************************************/
+
+.indexSection {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.mainArticle {
+    padding: 5px;
+    margin: 2.5%;
+    border: 5px solid black;
+    border-radius: 1rem;
+    flex-basis: 100%;
+    text-align: left;
+}
+
+.photoacceuil {
+    display: none;
+    padding: 10px;
+}
+
+.mainArticle:nth-child(odd) {
+    background: rgb(94, 90, 156);
+    background: linear-gradient(90deg, rgba(94, 90, 156, 1) 0%, rgba(9, 121, 86, 1) 49%, rgba(0, 212, 255, 1) 100%);
+}
+
+.mainArticle:nth-child(even) {
+    background: rgb(94, 90, 156);
+    background: linear-gradient(270deg, rgba(94, 90, 156, 1) 0%, rgba(9, 121, 86, 1) 49%, rgba(0, 212, 255, 1) 100%);
+}
+
+
+/****************************************************
+                      POSTS
+*****************************************************/
+
+.postDiv {
+    padding: 20px;
+    text-align: justify;
+    overflow: hidden;
+}
+
+.postPhoto {
+    padding: 10px;
+    max-width: 500px;
+    float: right;
+}
+
+
+/****************************************************
+                      ADMIN
+*****************************************************/
+
+.divAdm {
+    padding: 20px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.divAdm hr {
+    margin: 20px;
+}
+
+.newArt {
+    padding-top: 30px;
+}
+
+
+/****************************************************
+                      CHAT
+*****************************************************/
+
+.chatpage {
+    font-family: 'Lobster', cursive;
+}
+
+.chatpage fieldset {
+    margin-top: 20px;
+}
+
+.nomess {
+    color: chocolate;
+}
+
+.messmess {
+    font-size: 2rem;
+}
+
+.datemess {
+    font-size: 1rem;
+}
+
+#affichage {
+    background-image: url("../images/bg/17580.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/****************************************************
+                      CALENDAR
+*****************************************************/
+
+.h2Calendar {
+    flex-basis: 100%;
+    padding-bottom: 20px;
+}
+
+h3 {
+    font-size: 3rem;
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.dropForm {
+    width: 200px;
+    height: 100px;
+}
+
+.miniature {
+    width: 100px;
+    height: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.calendar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+table {
+    flex-basis: 100%;
+    border: 3px #343A40 solid;
+}
+
+.stock {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    flex-basis: 100%;
+    border: 5px solid #343A40;
+    border-radius: 14px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+th,
+td {
+    border: 3px solid #343A40;
+    width: 125px;
+    height: 75px;
+}
+
+td button {
+    float: right;
+}
+
+.advise {
+    font-style: italic;
+}
+
+
+/****************************************************
+                      CONTACT
+*****************************************************/
+
+.contact {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.mailto,
+.social {
+    padding: 5px;
+    margin: 2.5%;
+    border: 5px solid black;
+    border-radius: 1rem;
+    flex-basis: 45%;
+    text-align: center;
+}
+
+.social {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.social h3 {
+    flex-basis: 100%;
+}
+
+.social a {
+    font-size: 3rem;
+    flex-basis: 45%;
+    padding: 20px;
+}
+
+
+/****************************************************
+                      AGENDA
+*****************************************************/
+
+#agenda {
+    width: 100%;
+}
+
+#tableAgenda {
+    width: 100%;
+}
+
+#tableAgenda th,
+#tableAgenda td {
+    max-width: 50px;
+}
+
+#tableAgenda input {
+    max-width: 80%;
+}
+
+
+/****************************************************
+                      FOOTER
+*****************************************************/
+
+footer a {
+    color: white;
+}
+
+
+/*TABLETTE & PLUS*/
+
+@media screen and (min-width: 768px) {
+    header nav {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .mainArticle {
+        flex-basis: 45%;
+    }
+    .photoacceuil {
+        display: block;
+        max-width: 150px;
+        float: right;
+    }
+}

@@ -1,0 +1,154 @@
+<div class="calendar">
+
+    <h2 class="h2Calendar">Calendrier des activités de la chaîne</h2>
+    <h3>
+        <form action="index.php?a=gestcalendrier" method="post">
+            <input type="hidden" name="idTd" value="21" />
+            <input type="text" name="mini" value="<?= htmlspecialchars($out[20]) ?>">
+            <button type="submit"><i class="fas fa-save"></i></button>
+        </form>
+    </h3>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <td></td>
+                <th>Lundi</th>
+                <th>Mardi</th>
+                <th>Mercredi</th>
+                <th>Jeudi</th>
+                <th>Vendredi</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <th>14h-15h</th>
+
+                <!--Je crée un formulaire pour chaque td car une requête avec plusieurs colonne est problématique. -->
+
+                <?php for ($n = 0; $n <= 4; $n++) : ?>
+                    <td>
+                        <form action="index.php?a=gestcalendrier" method="post" ondragstart="dragStart(event)" ondragover="return dragOver(event)" ondrop="return drop(event)" class="dropForm">
+                            <input type="hidden" name="idTd" value="<?= $n + 1 ?>" />
+                            <?php if ($out[$n]) : ?>
+                                <img src="images/stock/<?= htmlspecialchars($out[$n]) ?>" alt="<?= htmlspecialchars($out[$n]) ?>" class="miniature" draggable="false">
+                                <button id="<?= $n + 1 ?>" onclick="eraseCalendar(this.id)"><i class="fas fa-trash-alt"></i></button>
+                            <?php else : ?>
+                                <button type="submit"><i class="fas fa-save"></i></button>
+                            <?php endif; ?>
+                        </form>
+                    </td>
+                <?php endfor; ?>
+
+            </tr>
+
+            <tr>
+
+                <th>15h-16h</th>
+
+                <?php for ($n = 5; $n <= 9; $n++) : ?>
+                    <td>
+                        <form action="index.php?a=gestcalendrier" method="post" ondragstart="dragStart(event)" ondragover="return dragOver(event)" ondrop="return drop(event)" class="dropForm">
+                            <input type="hidden" name="idTd" value="<?= $n + 1 ?>" />
+                            <?php if ($out[$n]) : ?>
+                                <img src="images/stock/<?= htmlspecialchars($out[$n]) ?>" alt="<?= htmlspecialchars($out[$n]) ?>" class="miniature" draggable="false">
+                                <button id="<?= $n + 1 ?>" onclick="eraseCalendar(this.id)"><i class="fas fa-trash-alt"></i></button>
+                            <?php else : ?>
+                                <button type="submit"><i class="fas fa-save"></i></button>
+                            <?php endif; ?>
+                        </form>
+                    </td>
+                <?php endfor; ?>
+
+            </tr>
+
+            <tr>
+
+                <th>16h-17h</th>
+
+                <?php for ($n = 10; $n <= 14; $n++) : ?>
+                    <td>
+                        <form action="index.php?a=gestcalendrier" method="post" ondragstart="dragStart(event)" ondragover="return dragOver(event)" ondrop="return drop(event)" class="dropForm">
+                            <input type="hidden" name="idTd" value="<?= $n + 1 ?>" />
+                            <?php if ($out[$n]) : ?>
+                                <img src="images/stock/<?= htmlspecialchars($out[$n]) ?>" alt="<?= htmlspecialchars($out[$n]) ?>" class="miniature" draggable="false">
+                                <button id="<?= $n + 1 ?>" onclick="eraseCalendar(this.id)"><i class="fas fa-trash-alt"></i></button>
+                            <?php else : ?>
+                                <button type="submit"><i class="fas fa-save"></i></button>
+                            <?php endif; ?>
+                        </form>
+                    </td>
+                <?php endfor; ?>
+
+            </tr>
+
+            <tr>
+
+                <th>17h-18h</th>
+
+                <?php for ($n = 15; $n <= 19; $n++) : ?>
+                    <td>
+                        <form action="index.php?a=gestcalendrier" method="post" ondragstart="dragStart(event)" ondragover="return dragOver(event)" ondrop="return drop(event)" class="dropForm">
+                            <input type="hidden" name="idTd" value="<?= $n + 1 ?>" />
+                            <?php if ($out[$n]) : ?>
+                                <img src="images/stock/<?= htmlspecialchars($out[$n]) ?>" alt="<?= htmlspecialchars($out[$n]) ?>" class="miniature" draggable="false">
+                                <button id="<?= $n + 1 ?>" onclick="eraseCalendar(this.id)"><i class="fas fa-trash-alt"></i></button>
+                            <?php else : ?>
+                                <button type="submit"><i class="fas fa-save"></i></button>
+                            <?php endif; ?>
+                        </form>
+                    </td>
+                <?php endfor; ?>
+
+            </tr>
+        </tbody>
+
+    </table>
+
+    <p class="advise">*La saisie de plusieurs cellules du calendrier à la fois n'est pas prise en compte.</p>
+
+    <div class="stock">
+
+        <?php foreach ($photos as $photo) : ?>
+
+            <div class="divimg" draggable="true" ondragstart="dragStart(event)">
+                <input type="hidden" name="mini" value="<?= htmlspecialchars($photo["Photo"]) ?>" />
+                <img src="images/stock/<?= htmlspecialchars($photo["Photo"]) ?>" alt="miniature calendrier" class="miniature" draggable="false">
+            </div>
+
+        <?php endforeach; ?>
+
+    </div>
+
+    <form action="index.php?a=gestcalendrier" method="post" enctype="multipart/form-data">
+
+        <fieldset>
+
+            <legend>Ajout de miniatures</legend>
+
+            <?php if (count($error) != 0) { ?>
+                <ul>
+                    <?php foreach ($error as $value) : ?>
+                        <li><?= htmlspecialchars($value) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php } ?>
+
+            <input type="hidden" name="MAX_FILE_SIZE" value="2097152">
+            <input type="file" name="image">
+            <br><small>Choisissez une photo avec une taille inférieure à 2 Mo.</small>
+
+            <button type="submit">Enregistrer</button>
+
+        </fieldset>
+
+    </form>
+
+</div>
+<script src="js/calendar.js"></script>

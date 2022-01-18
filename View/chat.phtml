@@ -1,0 +1,53 @@
+<div class="chatpage">
+
+    <?php if (count($error) != 0) { ?>
+        <ul>
+            <?php foreach ($error as $value) : ?>
+                <li><?= $value ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php } ?>
+
+    <h2>Chat en direct</h2>
+
+    <?php if (!empty($_SESSION)) { ?>
+
+        <form method="POST" id="formchat">
+
+            <div id="return"></div>
+
+            <p id="here">Vous pouvez chatter ici <b><?= $_SESSION['user']['Pseudo'] ?></b> :</p>
+
+            <input type="hidden" value="<?= $_SESSION['user']['Pseudo'] ?>" name="speaker" id="speaker" />
+
+            <textarea name="chatcontent" id="chatcontent"></textarea>
+
+            <input type="submit" value="Envoyer" id="sendMess"/>
+
+        </form>
+
+    <?php } else { ?>
+
+        <p>Vous devez être connecté pour discuter.</p>
+
+    <?php } ?>
+
+    <fieldset>
+
+        <legend>Limite de 25 messages affichés</legend>
+
+        <div id="affichage">
+
+            <?php foreach ($messages as $message) : ?>
+
+                <p class="nomess"><?= htmlspecialchars($message["Pseudo"]) ?> :</p>
+                <p class="messmess"><?= htmlspecialchars($message["Texte"]) ?></p>
+                <p class="datemess">Envoyé le : <?= htmlspecialchars($message["Date_chat"]) ?></p>
+                <hr />
+
+            <?php endforeach; ?>
+
+        </div>
+    </fieldset>
+</div>
+<script src="js/chat.js"></script>
