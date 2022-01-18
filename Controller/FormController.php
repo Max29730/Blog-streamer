@@ -254,15 +254,6 @@ class FormController extends Database{
         $calend = $calendarModel-> eraseCalendar($idTd);
     }
 
-    public function editAgenda($data){
-        
-        $idTd = $data['idTd'];
-        $tache = $data['tache'];
-        
-        $agendaModel = new AgendaModel();
-        $agend = $agendaModel-> editAgenda($idTd, $tache); 
-    }
-
 }
 
     

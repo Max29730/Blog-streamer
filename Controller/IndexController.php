@@ -171,41 +171,7 @@ if(array_key_exists('a',$_GET)){
 
             $title = "Gestion du Calendrier";
             $template = 'View/gestcalendar.phtml';
-            break;     
-
-            case 'agenda':
-            
-                userNotOnline();
-                $error = [];
-                
-                $agenda = $agendaModel->recupAgenda();
-                
-                $out = array_column($agenda, 'taches');
-                                
-                if ($_POST){
-                    
-                        $editAgenda = $formController->editAgenda($_POST);
-                        header("Location: index.php?a=agenda");
-                        
-                    }
-    
-                $title = "Agenda";
-                $template = 'View/agenda.phtml';
-                break;     
-
-                case 'agenda_affichage':
-            
-                    userNotOnline();
-                    $error = [];
-                    
-                    $agenda = $agendaModel->recupAgenda();
-                    
-                    $out = array_column($agenda, 'taches');
-        
-                    $title = "Agenda";
-                    $template = 'View/agenda_affichage.phtml';
-                    break;     
-        
+            break;           
 
     }
 } else {

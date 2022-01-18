@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="css/normalize.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <meta name="Description" content="Titsaoui Maxime Blog">
     <meta name="Revisit-After" content="1 day">
@@ -32,18 +33,17 @@
 
             <?php if (array_key_exists('user', $_SESSION)) : ?>
 
-                <?php if ($_SESSION['user']['Role'] == 'Admin') { ?>
-                    <a href="admin.php"><i class="fas fa-cogs"></i> Administration</a>
-                    <a href="index.php?a=gestcalendrier" class="noMobile"><i class="fas fa-calendar-alt"></i> Gestion du Calendrier</a>
-                    <a href="index.php?a=agenda"><i class="fas fa-calendar-alt"></i> Agenda</a>
-                    <a href="index.php?a=agenda_affichage"><i class="fas fa-calendar-alt"></i> Agenda Affichage</a>
-                <?php } ?>
+            <?php if ($_SESSION['user']['Role'] == 'Admin') { ?>
+            <a href="admin.php"><i class="fas fa-cogs"></i> Administration</a>
+            <a href="index.php?a=gestcalendrier" class="noMobile"><i class="fas fa-calendar-alt"></i> Gestion du
+                Calendrier</a>
+            <?php } ?>
 
-                <a href="index.php?a=logout"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
+            <a href="index.php?a=logout"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
 
             <?php else : ?>
-                <a href="index.php?a=login"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
-                <a href="index.php?a=register"><i class="fas fa-user"></i> S'enregistrer</a>
+            <a href="index.php?a=login"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
+            <a href="index.php?a=register"><i class="fas fa-user"></i> S'enregistrer</a>
             <?php endif; ?>
 
             <a href="index.php?a=chat"><i class="fas fa-comments"></i> Messagerie instantanée</a>
