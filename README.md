@@ -2,8 +2,6 @@
 
  ---Update 1.1---
 
-test
-
 Nouvelle fonctionnalité : -Calendrier de streaming- 
     Création d'un calendrier avec api drag and drop pour gérer les activités de la chaîne
     Accessibilité de la gestion uniquement en administrateur (gestcalendar.phtml) et visuel non éditable pour les utilisateurs (calendar.phtml)
