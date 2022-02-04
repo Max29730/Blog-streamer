@@ -26,10 +26,10 @@ Utilisation de JQuery pour la gestion du chat.
 
 Responsive mobile first - tablette/écran de pc.
 
-Requêtes SQL via phpMyAdmin et localisation de la base de données à live-31_maximetitsaoui58_examen
+Requêtes SQL via phpMyAdmin.
 
 Sources d'aides pour la réalisation : Stack Overflow (divers topic du forum), Udemy (cours de Louis Nicolas Leuillet pour le PHP et MySQL et de John Taieb pour le JS), 
-Youtube (chaîne de Lior CHAMLA pour la réalisation du chat) et les cours de nos professeurs bien entendu.
+Youtube (chaîne de Lior CHAMLA pour la réalisation du chat).
 
 Logiciels utilisés pour la création : Visual Studio Code et WampServer.
 
